@@ -1,5 +1,5 @@
 <!--
-This is a sample _comment.md template that we use at Localytics. You should customize this for your use case.
+This is a sample _comment.md template that we use at Foxtrot. You should customize this for your use case.
 -->
 
 {% if diffs.values()|min < -0.1 %}
@@ -13,7 +13,7 @@ This is a sample _comment.md template that we use at Localytics. You should cust
 
 {% for lang, diff in diffs.items() %}
 
-### {{ lang|lang_nice }}: ![{{ lang|lang_nice }}](http://img.shields.io/badge/LocCoverage-{{ args[lang]|int }}%25-{{ 'red' if diff < 0 else 'brightgreen' }}.svg?style=flat)
+### {{ lang|lang_nice }}: ![{{ lang|lang_nice }}](http://img.shields.io/badge/FoxCoverage-{{ args[lang]|int }}%25-{{ 'red' if diff < 0 else 'brightgreen' }}.svg?style=flat)
 Current coverage for `{{ pr.head.ref }}` is at **{{ args[lang] }}**%
 **{{ diff }}**% change from <a href='https://github.com/{{ pr.head.repo.organization.login }}/{{ pr.head.repo.name }}/tree/{{ base }}'>`master`</a> at {{ base }}
 
@@ -21,5 +21,5 @@ Current coverage for `{{ pr.head.ref }}` is at **{{ args[lang] }}**%
 {% endfor %}
 
 {% if rank %}
-Your rank on the [Localytics Coverage Leaderboard]({{ url_for('leaderboard_view', _external=True) }}) for `{{ pr.head.repo.name }}` is **{{ rank[0] }}** out of **{{ rank[1] }}**!
+Your rank on the [Foxtrot Coverage Leaderboard]({{ url_for('leaderboard_view', _external=True) }}) for `{{ pr.head.repo.name }}` is **{{ rank[0] }}** out of **{{ rank[1] }}**!
 {% endif %}
