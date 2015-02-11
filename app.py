@@ -97,6 +97,7 @@ def login_view():
   session['state'] = str(hash(str(time.time())+constants.get('SK')))
   query = 'client_id={}&scope={}&state={}'.format(
     constants.get('GH_CLIENT_ID'),
+    '/callback',
     constants.get('GH_SCOPE'),
     session['state'])
   return redirect('https://github.com/login/oauth/authorize?{}'.format(query))
